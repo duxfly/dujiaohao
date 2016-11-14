@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flower.dujiaohao.dao.ConsultDao" >
+  <resultMap id="BaseResultMap" type="com.flower.dujiaohao.pojo.Consult" >
+    <id column="consultId" property="consultid" jdbcType="BIGINT" />
+    <result column="empid" property="empid" jdbcType="BIGINT" />
+    <result column="payid" property="payid" jdbcType="BIGINT" />
+    <result column="finish_time" property="finishTime" jdbcType="BIGINT" />
+    <result column="addtime" property="addtime" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="userid" property="userid" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="userphone" property="userphone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    consultId, empid, payid, finish_time, addtime, status, userid, username, userphone
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_lvz_consult
+    where consultId = #{consultid,jdbcType=BIGINT}
+  </select>
+</mapper>
